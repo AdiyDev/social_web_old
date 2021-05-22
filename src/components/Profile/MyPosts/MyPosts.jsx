@@ -3,7 +3,7 @@ import s from "./MyPosts.module.css";
 import Post from "./Post/Post";
 
 
-const MyPosts = () => {
+const MyPosts = (props) => {
     return (
         <ul className={s.posts}>
             <li>
@@ -11,10 +11,10 @@ const MyPosts = () => {
                 <textarea></textarea>
                 <button>add post</button>
             </li>
-            <Post />
-            <Post />
-            <Post />
-            <Post />
+            <li className={s.posts}>
+                <Post message="Hi, how are you?" likeCount=" 10 " />
+                <Post message="It's my first post" likeCount=" 15 " />
+            </li>
         </ul>
     )
 }
