@@ -1,6 +1,7 @@
 .nav {
     grid-area: n;
     background-color: azure;
+    padding: 20px;
 }
 
 .nav .ul {
@@ -9,20 +10,21 @@
     list-style-type: none;
 }
 
+.nav .ul .item {
+    padding: 5px;
+    margin: 0;
+    margin-bottom: 10px;
+    background-color: gainsboro;
+    border: 1px solid salmon;
+}
 
-.nav .ul li a {
-    color: cyan;
+.nav .ul .item a {
+    padding: 5px;
+    color: darkturquoise;
     text-decoration: none;
 }
 
-.nav .ul .item.active {
+.nav .ul .item .active {
     color: red;
-}
-
-.active {
-    color: red;
-}
-
-.item {
-    color: darkred;
+    border-right: 1px dotted black;
 }
