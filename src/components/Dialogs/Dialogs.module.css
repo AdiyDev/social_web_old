@@ -15,7 +15,10 @@
     margin-bottom: 5px;
 }
 
-
+.dialogsItems .dialog a {
+    text-decoration: none;
+    padding: 10px;
+}
 
 .dialogsItems .active {
     color: red;
@@ -27,6 +30,7 @@
 }
 
 .messages .message {
-
+    padding: 0;
+    margin-bottom: 5px;
 }
 

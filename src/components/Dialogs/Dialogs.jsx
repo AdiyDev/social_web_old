@@ -1,21 +1,41 @@
 import React from "react";
 import s from "./Dialogs.module.css";
+import {NavLink} from "react-router-dom";
+
+const DialogItem = (props) => {
+    let path = "/dialogs/" + props.id;
+
+    return (
+        <li className={s.dialog}>
+            <NavLink to={path} activeClassName={s.active}>{props.name}</NavLink>
+        </li>
+    )
+}
+
+const Message = (props) => {
+    return (
+        <li className={s.message}>{props.message}</li>
+    )
+}
 
 const Dialogs = (props) => {
     return (
         <div className={s.dialogs}>
             <ul className={s.dialogsItems}>
-                <li className={s.dialog + ' ' + s.active}>Arkady</li>
-                <li className={s.dialog}>Ludmila</li>
-                <li className={s.dialog}>Slavik</li>
-                <li className={s.dialog}>Danis</li>
-                <li className={s.dialog}>Elena</li>
-                <li className={s.dialog}>Pasha</li>
+                <DialogItem name="Arkady" id="1"/>
+                <DialogItem name="Ludmila" id="2"/>
+                <DialogItem name="Marat" id="3"/>
+                <DialogItem name="Danis" id="4"/>
+                <DialogItem name="Elena" id="5"/>
+                <DialogItem name="Pasha" id="6"/>
             </ul>
             <ul className={s.messages}>
-                <li className={s.message}>Hi</li>
-                <li className={s.message}>How are your samuraiJS</li>
-                <li className={s.message}>privet</li>
+                <Message message="HI"/>
+                <Message message="How are your samuraiJS"/>
+                <Message message="privet"/>
+                <Message message="Zdarov"/>
+                <Message message="Kak dela?"/>
+                <Message message="Vse normalno"/>
             </ul>
         </div>
     )

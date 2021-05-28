@@ -5,15 +5,19 @@ import Post from "./Post/Post";
 
 const MyPosts = (props) => {
     return (
-        <ul className={s.posts}>
+        <ul className={s.postsBlock}>
             <li>
-                <p>My posts</p>
-                <textarea></textarea>
-                <button>add post</button>
+                <h3>My posts</h3>
+                <div>
+                    <textarea></textarea>
+                </div>
+                <div>
+                    <button>add post</button>
+                </div>
             </li>
             <li className={s.posts}>
-                <Post message="Hi, how are you?" likeCount="15" />
-                <Post message="It's my first post" likeCount="20" />
+                <Post message="Hi, how are you?" likeCount="15"/>
+                <Post message="It's my first post" likeCount="20"/>
             </li>
         </ul>
     )

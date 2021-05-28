@@ -5,3 +5,13 @@
     list-style-type: none;
     background-color: bisque;
 }
+
+.postsBlock {
+    margin: 0;
+    padding: 10px;
+    list-style: none;
+}
+
+.postsBlock li:first-of-type .div  button {
+    margin-bottom: 10px;
+}
