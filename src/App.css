@@ -5,13 +5,14 @@
     grid-template-columns: 2fr 10fr;
     /*grid-template: 60px 1fr/2fr 10fr;*/
     /*grid-gap: ;*/
-    max-width: 1600px;
+    min-width: 1600px;
+    min-height: 600px;
     margin: 0 auto;
+    background-color: #eceef5;
 }
 
 .app-wrapper-content {
     grid-area: c;
-    background-color: bisque;
 }
 
 
