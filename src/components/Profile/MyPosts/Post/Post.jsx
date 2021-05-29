@@ -5,10 +5,10 @@ const Post = (props) => {
     return (
         <li className={s.item}>
             <img
-                src="https://akm-img-a-in.tosshub.com/indiatoday/images/story/201907/imgonline-com-ua-FrameBlurred-_14.jpeg?m6aZMJ2FuRNdIJhw9MbIpcGgJvY3yzW6&size=770:433"
+                src="http://www.petplan.com.au/blog/wp-content/uploads/2016/12/pet-insurance-dog-cat-8.jpg"
                 alt=""></img>
             {props.message}
-            <span>like</span>{props.likeCount}
+            <span>like</span>{props.likesCount}
         </li>
     )
 }
