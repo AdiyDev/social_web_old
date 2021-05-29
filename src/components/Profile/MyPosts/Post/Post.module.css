@@ -2,6 +2,7 @@
     color: #8c7f7f;
     padding: 10px 0;
     margin-bottom: 10px;
+    border-bottom: 2px dotted #000000;
 }
 
 .item img {
