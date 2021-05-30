@@ -14,6 +14,7 @@
 
 .postsBlock .myPostsBlock {
     padding: 0;
+    list-style: none;
 }
 
 .postsBlock .myPostsBlock textarea {
