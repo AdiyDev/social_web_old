@@ -16,13 +16,11 @@ const App = (props) => {
                 <Header/>
                 <Navbar/>
                 <div className="app-wrapper-content">
-                    <Route path='/profile' render={()=> <Profile posts={props.posts}/>}/>
-                    <Route path='/dialogs' render={()=> <Dialogs dialogs ={props.dialogs} messages={props.messages}/>}/>
-                    <Route path='/news' render={()=> <News/>}/>
-                    <Route path='/music' render={()=> <Music/>}/>
-                    <Route path='/settings' render={()=> <Settings/>}/>
-                    {/*<Route path='/profile' component={ProfileComponent}/> так же можно создать выже через let функцию дать ей название и передать название внутрь component и props кинуть выше*/}
-                    {/*route path='' render={() => {<Profile/>}} анонимная функция*/}
+                    <Route path='/profile' render={() => <Profile posts={props.allArray[0]}/>}/>
+                    <Route path='/dialogs' render={() => <Dialogs dialogs={props.allArray[1]} messages={props.allArray[2]}/>}/>
+                    <Route path='/news' render={() => <News/>}/>
+                    <Route path='/music' render={() => <Music/>}/>
+                    <Route path='/settings' render={() => <Settings/>}/>
                 </div>
             </div>
         </BrowserRouter>
@@ -30,3 +28,9 @@ const App = (props) => {
 }
 
 export default App;
+// props.allArray[i]
+{/*<Route path='/profile' component={ProfileComponent}/> так же можно создать выже через let функцию
+ дать ей название и передать название внутрь component и props кинуть выше <component/>*/
+}
+{/*route path='' render={() => {<Profile/>}} анонимная функция {component()}*/
+}

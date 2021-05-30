@@ -12,7 +12,9 @@ const MyPosts = (props) => {
             <ul className={s.myPostsBlock}>
                 <li><h3>My posts</h3></li>
                 <li><textarea></textarea></li>
-                <li><button className={s.buttonBlue + ' ' + s.buttonBlueEffect + ' ' + s.buttonBlueRotate}>add post</button></li>
+                <li>
+                    <button className={s.buttonBlue + ' ' + s.buttonBlueEffect + ' ' + s.buttonBlueRotate}>add post</button>
+                </li>
             </ul>
             <ul className={s.posts}>
                 {postsElements}

@@ -30,10 +30,11 @@ let messages = [
     {id: 5, message: "Kak dela?"},
     {id: 6, message: "Vse normalno"}
 ]
-
+let allArray = [posts, dialogs, messages];
+{/*posts={posts} dialogs={dialogs} messages={messages} создал выше массив массивов объектов и в app.js по индексу выбрал нужный массив объектов и передал дальше только отдельный кусок у димыча только запись по пропсам и прокидывание по одному*/}
 ReactDOM.render(
     <React.StrictMode>
-        <App posts={posts} dialogs={dialogs} messages={messages}/>
+        <App allArray={allArray}/>
     </React.StrictMode>,
     document.getElementById('root')
 );
