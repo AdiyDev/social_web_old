@@ -13,7 +13,8 @@ const MyPosts = (props) => {
                 <li><h3>My posts</h3></li>
                 <li><textarea></textarea></li>
                 <li>
-                    <button className={s.buttonBlue + ' ' + s.buttonBlueEffect + ' ' + s.buttonBlueRotate}>add post</button>
+                    <button className={s.buttonBlue + ' ' + s.buttonBlueEffect + ' ' + s.buttonBlueRotate}>add post
+                    </button>
                 </li>
             </ul>
             <ul className={s.posts}>
