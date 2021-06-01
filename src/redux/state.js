@@ -26,8 +26,17 @@ let state = {
             {id: 5, message: "Kak dela?"},
             {id: 6, message: "Vse normalno"}
         ]
+    },
+    sidebar: {
+        friends: [
+            {id: 1, name: "Arkady"},
+            {id: 2, name: "Ludmila"},
+            {id: 3, name: "Marat"},
+            {id: 4, name: "Danis"},
+            {id: 5, name: "Elena"},
+            {id: 6, name: "Pasha"}
+        ]
     }
-    // siteBar: {[]}
 };
 
 export default state;
