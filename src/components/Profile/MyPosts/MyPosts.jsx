@@ -2,6 +2,7 @@ import React from 'react';
 import s from "./MyPosts.module.css";
 import Post from "./Post/Post";
 
+
 const MyPosts = (props) => {
     let postsElements = props.posts.map(p => <Post message={p.message} likesCount={p.likesCount}/>);
 
@@ -10,7 +11,7 @@ const MyPosts = (props) => {
     let addPost = () => {
         let text = newPostElement.current.value;
         props.addPost(text);
-        newPostElement.current.value = '';
+        newPostElement.current.value = "";
     }
     return (
         <ul className={s.postsBlock}>
