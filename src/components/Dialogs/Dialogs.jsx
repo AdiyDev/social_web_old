@@ -22,7 +22,7 @@ const Dialogs = (props) => {
             </ul>
             <ul className={s.messages}>
                 {messegesElements}
-                <textarea ref={newMessageElement}></textarea>
+                <textarea ref={newMessageElement} onKeyDown={() => {alert("WTF")}}></textarea>
                 <button onClick={addMessage}
                         className={s.buttonBlue + ' ' + s.buttonBlueEffect + ' ' + s.buttonBlueRotate}>add message
                 </button>

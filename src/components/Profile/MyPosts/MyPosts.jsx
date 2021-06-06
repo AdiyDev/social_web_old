@@ -9,21 +9,23 @@ const MyPosts = (props) => {
     let newPostElement = React.createRef();
 
     let addPost = () => {
-        let text = newPostElement.current.value;
-        props.addPost(text);
-        newPostElement.current.value = "";
+        props.addPost();
     }
 
-    let addKeyDownSymbol = () => {
-        let textInArea = newPostElement.current.value;
-        props.addKeyDownSymbol(textInArea)
+    let onPostChange = () => {
+        let newText = newPostElement.current.value;
+        props.updateNewPostText(newText)
     }
 
     return (
         <ul className={s.postsBlock}>
             <ul className={s.myPostsBlock}>
                 <li><h3>My posts</h3></li>
-                <li><textarea ref={newPostElement} onKeyDown={addKeyDownSymbol}></textarea></li>
+                <li>
+                    <textarea onChange={onPostChange}
+                              ref={newPostElement}
+                              value={props.newPostText}/>
+                </li>
                 <li>
                     <button onClick={addPost}
                             className={s.buttonBlue + ' ' + s.buttonBlueEffect + ' ' + s.buttonBlueRotate}>add post

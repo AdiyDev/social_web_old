@@ -10,9 +10,7 @@ let state = {
             {id: 5, message: "Kak dela? ", likesCount: 2},
             {id: 6, message: "Kot poel kaktus ", likesCount: 1}
         ],
-        textInArea: [
-            {message: ''}
-        ]
+        newPostText: 'write meaningfully'
     },
     dialogsPage: {
         dialogs: [
@@ -44,17 +42,25 @@ let state = {
     }
 };
 
+window.state = state;
 
-export let addPost = (postMessage) => {
+
+export let addPost = () => {
     let newPost = {
         id: 7,
-        message: postMessage,
+        message: state.profilePage.newPostText,
         likesCount: 0
     };
 
     state.profilePage.posts.push(newPost);
+    state.profilePage.newPostText = '';
     rerenderEntireTree(state);
 };
+
+export let updateNewPostText = (newText) => {
+    state.profilePage.newPostText = newText;
+    rerenderEntireTree(state);
+}
 
 export let addMessage = (textMessage) => {
     let newMessageItem = {
@@ -66,10 +72,7 @@ export let addMessage = (textMessage) => {
     rerenderEntireTree(state);
 };
 
-export let addKeyDownSymbol = (textInArea) => {
-    state.profilePage.textInArea.messages = textInArea;
-    rerenderEntireTree(state);
-}
+
 
 
 export default state;

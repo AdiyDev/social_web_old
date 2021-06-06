@@ -8,7 +8,6 @@ import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 import {Route} from "react-router-dom";
-import {addKeyDownSymbol} from "./redux/state";
 
 const App = (props) => {
     return (
@@ -17,7 +16,9 @@ const App = (props) => {
             <Navbar state={props.state.sidebar}/>
             <div className="app-wrapper-content">
                 <Route path='/profile'
-                       render={() => <Profile state={props.state.profilePage} addPost={props.addPost} addKeyDownSymbol={props.addKeyDownSymbol}/>}/>
+                       render={() => <Profile profilePage={props.state.profilePage}
+                                              addPost={props.addPost}
+                                              updateNewPostText={props.updateNewPostText}/>}/>
                 <Route path='/dialogs'
                        render={() => <Dialogs state={props.state.dialogsPage} addMessage={props.addMessage}/>}/>
                 <Route path='/news'
