@@ -5,8 +5,8 @@ let state = {
         posts: [
             {id: 1, message: "Hi, how are you? ", likesCount: 15},
             {id: 2, message: "It's my first post ", likesCount: 10},
-            {id: 3, message: "Vas ne slishno ", likesCount: 7},
-            {id: 4, message: "Po povodu kapitala prozitocnogo minimuma ", likesCount: 3},
+            {id: 3, message: "Kak tebe takoe Elon Sobaks? ", likesCount: 7},
+            {id: 4, message: "Zvonu po povodu kapitala prozitocnogo minimuma ", likesCount: 3},
             {id: 5, message: "Kak dela? ", likesCount: 2},
             {id: 6, message: "Kot poel kaktus ", likesCount: 1}
         ],
@@ -23,12 +23,13 @@ let state = {
         ],
         messages: [
             {id: 1, message: "HI"},
-            {id: 2, message: "How are your reactJS"},
-            {id: 3, message: "privet"},
-            {id: 4, message: "Zdarov"},
+            {id: 2, message: "How are your React-Redux?"},
+            {id: 3, message: "Privet"},
+            {id: 4, message: "Dobrogo vremeni sutok"},
             {id: 5, message: "Kak dela?"},
-            {id: 6, message: "Vse normalno"}
-        ]
+            {id: 6, message: "Vse normalno, blagodaru"}
+        ],
+        newMessageText: 'write anything'
     },
     sidebar: {
         friends: [
@@ -62,17 +63,21 @@ export let updateNewPostText = (newText) => {
     rerenderEntireTree(state);
 }
 
-export let addMessage = (textMessage) => {
+export let addMessage = () => {
     let newMessageItem = {
         id: 7,
-        message: textMessage
+        message: state.dialogsPage.newMessageText
     };
 
     state.dialogsPage.messages.push(newMessageItem);
+    state.dialogsPage.newMessageText = '';
     rerenderEntireTree(state);
 };
 
-
+export let updateNewMessageText = (newMessage) => {
+    state.dialogsPage.newMessageText = newMessage;
+    rerenderEntireTree(state);
+}
 
 
 export default state;

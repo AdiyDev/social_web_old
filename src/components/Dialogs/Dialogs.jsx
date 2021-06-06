@@ -4,15 +4,18 @@ import Message from "./Message/Message";
 import DialogItem from "./DialogItem/DialogItem";
 
 const Dialogs = (props) => {
-    let dialogsElements = props.state.dialogs.map(d => <DialogItem name={d.name} id={d.id}/>);
-    let messegesElements = props.state.messages.map(m => <Message message={m.message}/>);
+    let dialogsElements = props.dialogsPage.dialogs.map(d => <DialogItem name={d.name} id={d.id}/>);
+    let messegesElements = props.dialogsPage.messages.map(m => <Message message={m.message}/>);
 
     let newMessageElement = React.createRef();
 
     let addMessage = () => {
+        props.addMessage();
+    }
+
+    let updateNewMessageText = () => {
         let textMessage = newMessageElement.current.value;
-        props.addMessage(textMessage);
-        newMessageElement.current.value = "";
+        props.updateNewMessageText(textMessage);
     }
 
     return (
@@ -22,10 +25,13 @@ const Dialogs = (props) => {
             </ul>
             <ul className={s.messages}>
                 {messegesElements}
-                <textarea ref={newMessageElement} onKeyDown={() => {alert("WTF")}}></textarea>
-                <button onClick={addMessage}
-                        className={s.buttonBlue + ' ' + s.buttonBlueEffect + ' ' + s.buttonBlueRotate}>add message
-                </button>
+                <li> <textarea onChange={updateNewMessageText}
+                               ref={newMessageElement}
+                               value={props.dialogsPage.newMessageText}/>
+                    <button onClick={addMessage}
+                            className={s.buttonBlue + ' ' + s.buttonBlueEffect + ' ' + s.buttonBlueRotate}>add message
+                    </button>
+                </li>
             </ul>
         </div>
     )
