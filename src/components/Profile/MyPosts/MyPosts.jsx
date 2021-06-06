@@ -13,11 +13,17 @@ const MyPosts = (props) => {
         props.addPost(text);
         newPostElement.current.value = "";
     }
+
+    let addKeyDownSymbol = () => {
+        let textInArea = newPostElement.current.value;
+        props.addKeyDownSymbol(textInArea)
+    }
+
     return (
         <ul className={s.postsBlock}>
             <ul className={s.myPostsBlock}>
                 <li><h3>My posts</h3></li>
-                <li><textarea ref={newPostElement}></textarea></li>
+                <li><textarea ref={newPostElement} onKeyDown={addKeyDownSymbol}></textarea></li>
                 <li>
                     <button onClick={addPost}
                             className={s.buttonBlue + ' ' + s.buttonBlueEffect + ' ' + s.buttonBlueRotate}>add post

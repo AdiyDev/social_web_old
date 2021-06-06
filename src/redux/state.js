@@ -9,6 +9,9 @@ let state = {
             {id: 4, message: "Po povodu kapitala prozitocnogo minimuma ", likesCount: 3},
             {id: 5, message: "Kak dela? ", likesCount: 2},
             {id: 6, message: "Kot poel kaktus ", likesCount: 1}
+        ],
+        textInArea: [
+            {message: ''}
         ]
     },
     dialogsPage: {
@@ -62,6 +65,11 @@ export let addMessage = (textMessage) => {
     state.dialogsPage.messages.push(newMessageItem);
     rerenderEntireTree(state);
 };
+
+export let addKeyDownSymbol = (textInArea) => {
+    state.profilePage.textInArea.messages = textInArea;
+    rerenderEntireTree(state);
+}
 
 
 export default state;
