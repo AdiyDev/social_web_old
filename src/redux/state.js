@@ -6,7 +6,7 @@ let state = {
             {id: 1, message: "Hi, how are you? ", likesCount: 15},
             {id: 2, message: "It's my first post ", likesCount: 10},
             {id: 3, message: "Kak tebe takoe Elon Sobaks? ", likesCount: 7},
-            {id: 4, message: "Zvonu po povodu kapitala prozitocnogo minimuma ", likesCount: 3},
+            {id: 4, message: "Zvonu po povodu Korma, otdaite besplanto mnogodetnomu papke", likesCount: 3},
             {id: 5, message: "Kak dela? ", likesCount: 2},
             {id: 6, message: "Kot poel kaktus ", likesCount: 1}
         ],
