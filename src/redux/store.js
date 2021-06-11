@@ -51,12 +51,12 @@ let store = {
 
         this._state.profilePage.posts.push(newPost);
         this._state.profilePage.newPostText = '';
-        this.rerenderEntireTree(store);
+        this._callSubscriber(this._state);
     },
 
     updateNewPostText(newText) {
         this._state.profilePage.newPostText = newText;
-        this.rerenderEntireTree(store);
+        this._callSubscriber(this._state);
     },
 
     addMessage() {
@@ -67,24 +67,24 @@ let store = {
 
         this._state.dialogsPage.messages.push(newMessageItem);
         this._state.dialogsPage.newMessageText = '';
-        this.rerenderEntireTree(store);
+        this._callSubscriber(this._state);
     },
 
     updateNewMessageText(newMessage) {
         this._state.dialogsPage.newMessageText = newMessage;
-        this.rerenderEntireTree(store);
+        this._callSubscriber(this._state);
     },
 
     getState() {
         return this._state;
     },
 
-    rerenderEntireTree() {
+    _callSubscriber() {
         console.log("state was changed");
     },
 
     subscribe(observer) {
-        this.rerenderEntireTree = observer;
+        this._callSubscriber = observer;
     }
 }
 

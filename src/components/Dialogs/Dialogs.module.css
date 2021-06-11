@@ -13,6 +13,14 @@
 .dialogsItems .dialog {
     margin: 0;
     margin-bottom: 5px;
+    transition-property: font-size;
+    transition-duration: 1s;
+    transition-timing-function: cubic-bezier(.29, 1.01, 1, -0.68);
+
+}
+
+.dialogsItems .dialog:hover {
+    font-size: 28px;
 }
 
 .dialogsItems img {
