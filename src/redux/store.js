@@ -1,4 +1,4 @@
-const store = {
+let store = {
     _state: {
         profilePage: {
             posts: [
