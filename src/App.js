@@ -13,16 +13,14 @@ const App = (props) => {
     return (
         <div className="app-wrapper">
             <Header/>
-            <Navbar state={props.state.sidebar}/>
+            <Navbar state={props.store.getState()}/>
             <div className="app-wrapper-content">
                 <Route path='/profile'
-                       render={() => <Profile profilePage={props.state.profilePage}
-                                              addPost={props.addPost}
-                                              updateNewPostText={props.updateNewPostText}/>}/>
+                       render={() => <Profile profilePage={props.store.getState().profilePage}
+                                              store={props.store}/>}/>
                 <Route path='/dialogs'
-                       render={() => <Dialogs dialogsPage={props.state.dialogsPage}
-                                              addMessage={props.addMessage}
-                                              updateNewMessageText={props.updateNewMessageText}/>}/>
+                       render={() => <Dialogs dialogsPage={props.store.getState().dialogsPage}
+                                              store={props.store}/>}/>
                 <Route path='/news'
                        render={() => <News/>}/>
                 <Route path='/music'
@@ -35,9 +33,3 @@ const App = (props) => {
 }
 
 export default App;
-
-{/*<Route path='/profile' component={ProfileComponent}/> так же можно создать выже через let функцию
- дать ей название и передать название внутрь component и props кинуть выше <component/>*/
-}
-{/*route path='' render={() => {<Profile/>}} анонимная функция {component()}*/
-}
