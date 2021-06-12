@@ -8,7 +8,7 @@ const Post = (props) => {
                 src="http://www.petplan.com.au/blog/wp-content/uploads/2016/12/pet-insurance-dog-cat-8.jpg"
                 alt=""></img>
             {props.message}
-            <span>like</span>{props.likesCount}
+            <span>like </span>{props.likesCount}
         </li>
     )
 }
