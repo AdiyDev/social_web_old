@@ -18,8 +18,8 @@ let initialState = {
             {id: 5, message: "Kak dela?"},
             {id: 6, message: "Vse normalno, blagodaru"}
         ],
-        newMessageBody: ''
-    };
+        newMessageBody: ""
+}
 
 const dialogsReducer = (state = initialState, action) => {
     switch (action.type) {
