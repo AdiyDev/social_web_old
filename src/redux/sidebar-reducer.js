@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 // const SEND_MESSAGE = 'SEND-MESSAGE';
 // const UPDATE_NEW_MESSAGE_BODY = 'UPDATE-NEW-MESSAGE-BODY';
 
+=======
+>>>>>>> a0533e1428c01de93fe62c4d8982f9767f1870bd
 let initialState = {
     friends: [
         {id: 1, name: "Arkady"},
@@ -11,6 +14,7 @@ let initialState = {
         // {id: 6, name: "Pasha"}
     ]
 };
+<<<<<<< HEAD
 
 const sidebarReducer = (state = initialState, action) => {
     // switch (action.type) {
@@ -30,7 +34,10 @@ const sidebarReducer = (state = initialState, action) => {
     //     default: // если ни по одному case не подошел просто возвращает state
     //         return state;
     // }
+=======
+>>>>>>> a0533e1428c01de93fe62c4d8982f9767f1870bd
 
+const sidebarReducer = (state = initialState, action) => {
     return state;
 }
 

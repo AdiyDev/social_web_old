@@ -1,10 +1,13 @@
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 
+<<<<<<< HEAD
 // let sum = (a = -1,b = 0) => {
 //     return a + b;
 // }
 
+=======
+>>>>>>> a0533e1428c01de93fe62c4d8982f9767f1870bd
 let initialState = {
     posts: [
         {id: 1, message: "Hi, how are you? ", likesCount: 15},
