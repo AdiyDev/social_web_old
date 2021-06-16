@@ -33,7 +33,7 @@ const profileReducer = (state = initialState, action) => {
             state.newPostText = action.newText;
             return state; //вместо break, что бы switch не проваливался дальше
         default: // если ни по одному case не подошел просто возвращает state
-            return;
+            return state;
     }
 }
 
