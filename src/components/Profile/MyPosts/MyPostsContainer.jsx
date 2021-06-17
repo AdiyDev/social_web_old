@@ -5,7 +5,7 @@ import {addPostActionCreator,updateNewPostTextActionCreator} from "../../../redu
 
 let mapStateToProps = (state) => {
   return {
-    profilePage: state.profilePage
+    profilePage: state.profilePage //posts уже ссылается на другой пост, так как сделали его копию
   }
 }
 

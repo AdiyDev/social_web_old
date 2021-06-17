@@ -15,19 +15,25 @@ let initialState = {
 
 const profileReducer = (state = initialState, action) => {
     switch (action.type) {
-        case ADD_POST:
+        case ADD_POST: {
             let newPost = {
                 id: 7,
                 message: state.newPostText,
                 likesCount: 0
             };
+            let stateCopy = {...state};   //поверхностное копирование 
+            stateCopy.posts = [...state.posts]; //поверхностное сначала и потом глубокое
+            stateCopy.posts.push(newPost);
+            stateCopy.newPostText = '';
+            return stateCopy;
+        }
+        case UPDATE_NEW_POST_TEXT: {
+            
+            let stateCopy = {...state};
 
-            state.posts.push(newPost);
-            state.newPostText = '';
-            return state;
-        case UPDATE_NEW_POST_TEXT:
-            state.newPostText = action.text;
-            return state; //вместо break, что бы switch не проваливался дальше
+            stateCopy.newPostText = action.text;
+            return stateCopy; //вместо break, что бы switch не проваливался дальше
+        }
         default: // если ни по одному case не подошел просто возвращает state
             return state;
     }
