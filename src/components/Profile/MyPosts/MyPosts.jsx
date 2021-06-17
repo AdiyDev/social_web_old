@@ -3,7 +3,7 @@ import s from "./MyPosts.module.css";
 import Post from './Post/Post';
 
 const MyPosts = (props) => {
-    let postsElements = props.posts.map(p => <Post message={p.message} likesCount={p.likesCount}/>);
+    let postsElements = props.profilePage.posts.map(p => <Post message={p.message} likesCount={p.likesCount}/>);
 
     let newPostElement = React.createRef();
 
@@ -23,7 +23,7 @@ const MyPosts = (props) => {
                 <li>
                     <textarea onChange={onPostChange}
                               ref={newPostElement}
-                              value={props.newPostText}></textarea>
+                              value={props.profilePage.newPostText}></textarea>
                 </li>
                 <li>
                     <button onClick={onAddPost}

@@ -11,4 +11,4 @@ let reducers = combineReducers({ // воспринимает всё в combineRe
 
 let store = createStore(reducers); // закомбайненные редусеры отдаём стору 
 
-export default store;
+export default store; 

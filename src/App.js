@@ -13,9 +13,7 @@ const App = (props) => {
     return (
         <div className="app-wrapper">
             <Header/>
-            <Navbar/> 
-            {/* <Navbar sidebar={props.state.sidebar} />  */}
-            {/* обернуть в контейнерный компонент sidebar*/} 
+            <Navbar/>
             <div className="app-wrapper-content">
                 <Route path='/profile'
                        render={() => <Profile/>}/>
