@@ -21,32 +21,6 @@ let initialState = {
 };
 
 const sidebarReducer = (state = initialState, action) => {
-    //     switch (action.type) {
-    //         case ADD_POST: {
-    //             let newPost = {
-    //                 id: 7,
-    //                 message: state.newPostText,
-    //                 likesCount: 0
-    //             };
-    //             let stateCopy = {...state};   //поверхностное копирование 
-    //             stateCopy.posts = [...state.posts]; //поверхностное сначала и потом глубокое
-    //             stateCopy.posts.push(newPost);
-    //             stateCopy.newPostText = '';
-    //             return stateCopy;
-    //         }
-    //         case UPDATE_NEW_POST_TEXT: {
-
-    //             let stateCopy = {...state};
-
-    //             stateCopy.newPostText = action.text;
-    //             return stateCopy; //вместо break, что бы switch не проваливался дальше
-    //         }
-    //         default: // если ни по одному case не подошел просто возвращает state
-    //             return state;
-    //     }
-    // }
-
-
     return state;
 }
 
