@@ -3,8 +3,8 @@ import s from "./MyPosts.module.css";
 import Post from './Post/Post';
 
 const MyPosts = (props) => {
-    let postsElements = props.profilePage.posts.map(p => <Post message={p.message} likesCount={p.likesCount}/>);
-
+    let postsElements = props.profilePage.posts.map(p => <Post message={p.message} key={p.id} likesCount={p.likesCount}/>);
+    let newPostText = props.profilePage.newPostText;
     let newPostElement = React.createRef();
 
     let onAddPost = () => {
@@ -21,9 +21,10 @@ const MyPosts = (props) => {
             <ul className={s.myPostsBlock}>
                 <li><h3>My posts</h3></li>
                 <li>
-                    <textarea onChange={onPostChange}
+                    <textarea placeholder={"write something"} 
+                              onChange={onPostChange}
                               ref={newPostElement}
-                              value={props.profilePage.newPostText}></textarea>
+                              value={newPostText}/>
                 </li>
                 <li>
                     <button onClick={onAddPost}

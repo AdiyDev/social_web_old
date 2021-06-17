@@ -10,7 +10,7 @@ let initialState = {
         {id: 5, message: "Kak dela? ", likesCount: 2},
         {id: 6, message: "Kot poel kaktus ", likesCount: 1}
     ],
-    newPostText: 'write meaningfully'
+    newPostText: ''
 };
 
 const profileReducer = (state = initialState, action) => {
