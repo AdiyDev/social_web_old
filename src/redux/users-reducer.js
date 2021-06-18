@@ -3,7 +3,7 @@ const UNFOLLOW = "UNFOLLOW";
 const SET_USERS = "SET-USERS";
 
 let initialState = {
-  users: []
+  users: [],
 };
 
 const usersReducer = (state = initialState, action) => {
@@ -15,7 +15,7 @@ const usersReducer = (state = initialState, action) => {
           if (u.id === action.userId) {
             return {
               ...u,
-              followed: true
+              followed: true,
             };
           }
           return u;
@@ -29,7 +29,7 @@ const usersReducer = (state = initialState, action) => {
           if (u.id === action.userId) {
             return {
               ...u,
-              followed: false
+              followed: false,
             };
           }
           return u;
@@ -38,7 +38,7 @@ const usersReducer = (state = initialState, action) => {
     case SET_USERS: {
       return {
         ...state,
-        users: [...state.users, ...action.users]
+        users: [...state.users, ...action.users],
       }; //склеиваем 2 массива которые были и те которые пришли из action
     }
     default:
@@ -48,15 +48,15 @@ const usersReducer = (state = initialState, action) => {
 
 export const followAC = (userId) => ({
   type: FOLLOW,
-  userId
+  userId,
 });
 export const unfollowAC = (userId) => ({
   type: UNFOLLOW,
-  userId
+  userId,
 });
 export const setUsersAC = (users) => ({
   type: SET_USERS,
-  users
+  users,
 });
 
 export default usersReducer;
