@@ -2,28 +2,22 @@ import React from "react";
 import styles from "./Users.module.css";
 import * as axios from "axios"; //импортируй всё что есть в ахиос
 import userPhoto from "../../assets/images/user.png"
-
+//обязательно extends реакт компонент
 class Users extends React.Component {
-
-  constructor(props) {
-    alert('new')
-    super(props) //конструктор является так же как бы и методом жизненного цикла
+  componentDidMount() {
     axios.get('https://social-network.samuraijs.com/api/1.0/users')
       .then(response => {
         this.props.setUsers(response.data.items)
       })
   }
 
-
-  //перепроверить
-  //обязательно extends реакт компонент
   render() { // пропсы сюда не приходят прокидывание параметров проходит автоматически
     return <div>
-      {this.props.users.map((u) => (
+      {this.props.users.map((u) => (// props становится свойством этого обьекта (класса Users)
         <div key={Users.id}>
           <span>
             <div>
-              <img src={u.photos.small != null ? u.photos.small : userPhoto} alt="" className={styles.usersPhoto} />
+              <img src={u.photos.small !== null ? u.photos.small : userPhoto} alt="" className={styles.usersPhoto} />
             </div>
             <div>
               {u.followed ? (
