@@ -1,8 +1,8 @@
 import React from "react";
 import Dialogs from "./Dialogs";
 import {
-  sendMessageCreator,
-  updateNewMessageBodyCreator,
+  sendMessage,
+  updateNewMessageBody,
 } from "../../redux/dialogs-reducer";
 import { connect } from "react-redux";
 
@@ -15,18 +15,7 @@ let mapStateToProps = (state) => {
   }
 }
 
-let mapDispatchToProps = (dispatch) => {
-  return {
-    updateNewMessageBody: (body) => {
-      dispatch(updateNewMessageBodyCreator(body));
-    },
-    sendMessage: () => {
-      dispatch(sendMessageCreator());
-    }
-  } // возвращаем обьект с функциями
-}
-
-const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs);
+const DialogsContainer = connect(mapStateToProps, { updateNewMessageBody, sendMessage })(Dialogs);
 // отрисовывается диалогс и в неё засовывается в props обьект со state другой с диспатч
 
 export default DialogsContainer;

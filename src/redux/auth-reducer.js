@@ -1,13 +1,13 @@
-const SET_USER_DATA = 'ADD-SET_USER_DATAPOST';
+const SET_USER_DATA = "ADD-SET_USER_DATAPOST";
 
 let initialState = {
   data: {
     id: null,
     email: null,
     login: null,
-    isAuth: false
+    isAuth: false,
     // isFetching: false
-  }
+  },
 };
 
 const authReducer = (state = initialState, action) => {
@@ -16,14 +16,16 @@ const authReducer = (state = initialState, action) => {
       return {
         ...state,
         ...action.data, //так как данные свойства находятся ниже они перезатруд которые выше в ...state
-        isAuth: true
-      }
+        isAuth: true,
+      };
     default:
       return state;
   }
-}
+};
 
-
-export const setAuthUserData = (id, email, login) => ({ type: SET_USER_DATA, data: { id, email, login } });
+export const setAuthUserData = (id, email, login) => ({
+  type: SET_USER_DATA,
+  data: { id, email, login },
+});
 
 export default authReducer;

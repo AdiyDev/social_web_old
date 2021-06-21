@@ -9,10 +9,9 @@ class ProfileContainer extends React.Component {
 
   componentDidMount() {
     let userId = this.props.match.params.userId;
-    // if (!userId) {
-    //   userId = 2
-    // }
-    !userId ? userId = 2 : userId = 3
+    if (!userId) {
+      userId = 2
+    }
     axios.get(`https://social-network.samuraijs.com/api/1.0/profile/` + userId) //когда в конце urlа то можно добавить и плюсом сделать конкатенацию
       .then(response => {
         this.props.setUserProfile(response.data);
