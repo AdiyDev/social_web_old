@@ -5,10 +5,10 @@ import sidebarReducer from "./sidebar-reducer";
 import usersReducer from "./users-reducer";
 
 let reducers = combineReducers({ // воспринимает всё в combineReducers how state
-    profilePage: profileReducer,
-    dialogsPage: dialogsReducer,
-    sidebar: sidebarReducer,
-    usersPage: usersReducer
+  profilePage: profileReducer,
+  dialogsPage: dialogsReducer,
+  sidebar: sidebarReducer,
+  usersPage: usersReducer
 });
 
 let store = createStore(reducers); // закомбайненные редусеры отдаём стору 
