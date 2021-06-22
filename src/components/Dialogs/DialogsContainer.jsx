@@ -1,9 +1,6 @@
 import React from "react";
 import Dialogs from "./Dialogs";
-import {
-  sendMessage,
-  updateNewMessageBody,
-} from "../../redux/dialogs-reducer";
+import { sendMessage, updateNewMessageBody, } from "../../redux/dialogs-reducer";
 import { connect } from "react-redux";
 
 // функ коннект из реакт редах вызываем конект она вернула нам другую функцию и потом выз функ которую вернул нам новый вызов
@@ -11,7 +8,8 @@ import { connect } from "react-redux";
 
 let mapStateToProps = (state) => {
   return {
-    dialogsPage: state.dialogsPage // пришла новая ссылка на обьект и поэтому перерисовывается
+    dialogsPage: state.dialogsPage, // пришла новая ссылка на обьект и поэтому перерисовывается
+    isAuth: state.auth.isAuth
   }
 }
 
