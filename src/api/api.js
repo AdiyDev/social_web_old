@@ -20,5 +20,14 @@ export const usersAPI = {
   },
   unfollow(userId) {
     return instance.delete(`follow/${userId}`)
+  },
+  getProfile(userId) {
+    return instance.get(`profile/` + userId) //когда в конце urlа то можно добавить и плюсом сделать конкатенацию //возвращаем промис возвращеный гетом
   }
+}
+
+export const authAPI = {
+  me() {
+    return instance.get(`auth/me`)
+  }  //me() дай мне меня 
 }
