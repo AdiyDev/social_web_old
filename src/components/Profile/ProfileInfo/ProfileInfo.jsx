@@ -2,6 +2,7 @@ import React from 'react';
 import s from "./ProfileInfo.module.css";
 import Preloader from './../../Preloader/Preloader';
 import ProfileStatus from './ProfileStatus'
+
 const ProfileInfo = (props) => {
   if (!props.profile) {
 
@@ -10,18 +11,21 @@ const ProfileInfo = (props) => {
 
   return (
     <ul className={s.profileInfoWrapper}>
-      {/* <li className={s.imageBlock}>
+      <li className={s.imageBlock}>
         <img
           src="https://helpx.adobe.com/content/dam/help/en/photoshop/using/convert-color-image-black-white/jcr_content/main-pars/before_and_after/image-before/Landscape-Color.jpg"
           alt=""></img>
-      </li> */}
+      </li>
       <li className={s.descriptionBlock}>
         <img src={props.profile.photos.large
           ? props.profile.photos.large
           : 'https://imgix.ranker.com/user_node_img/50082/1001628557/original/someone-worse-off-than-they-are-photo-u2?auto=format&q=60&fit=crop&fm=pjpg&w=375'} alt="" />
-        <ProfileStatus status={'hello my friends'} />
-        <p>{props.profile.aboutMe}</p>
-        <p>{props.profile.fullName}</p>
+
+
+        <ProfileStatus status={props.status} updateStatus={props.updateStatus} />
+
+        <li><p>{props.profile.aboutMe}</p></li>
+        <li><p>{props.profile.fullName}</p></li>
       </li>
       <li>
         {/* in contacts много элементов */}
