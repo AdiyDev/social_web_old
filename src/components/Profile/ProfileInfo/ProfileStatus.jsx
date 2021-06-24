@@ -1,7 +1,5 @@
 import React from 'react';
-import s from "./ProfileInfo.module.css";
-// import { render } from '@testing-library/react';
-// import { updateStatus } from './../../../redux/profile-reducer';
+// import s from "./ProfileInfo.module.css";
 
 class ProfileStatus extends React.Component {
   state = {
@@ -28,8 +26,8 @@ class ProfileStatus extends React.Component {
     })
   }
 
-  handleFocus = (evt) => {
-    evt.target.select();
+  handleFocus = (e) => {
+    e.target.select();
   }
 
   componentDidUpdate = (prevProps, prevState) => {

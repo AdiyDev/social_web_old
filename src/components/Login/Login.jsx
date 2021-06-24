@@ -3,8 +3,9 @@ import { Field, reduxForm } from 'redux-form'
 import { Element } from './../common/FormsControls/FormsControls'
 import { required, maxLengthCreator } from './../../utils/validators/validators';
 import { connect } from 'react-redux';
-import { login } from './../../redux/auth-reducer';
+import { login } from '../../redux/auth-reducer';
 import { Redirect } from 'react-router-dom';
+import style from './../common/FormsControls/FormsControls.module.css'
 
 const Input = Element("input")
 const maxLength30 = maxLengthCreator(30)
@@ -22,6 +23,9 @@ const LoginForm = (props) => {
         <div>
           <Field type={'checkbox'} name={'rememberMe'} component={Input} validate={[required, maxLength30]} /> remebmer me
         </div>
+        {props.error && <div className={style.formSummaryError}>
+          {props.error}
+        </div>}
         <div>
           <button>Login</button>
         </div>
@@ -38,14 +42,11 @@ const Login = (props) => {
   }
   if (props.isAuth) {
     return <Redirect to={'/profile'} />
-  } else {
-
-
-    return <div>
-      <h1>LOGIN</h1>
-      <LoginReduxForm onSubmit={onSubmit} />
-    </div>
   }
+  return <div>
+    <h1>LOGIN</h1>
+    <LoginReduxForm onSubmit={onSubmit} />
+  </div>
 }
 const mapStateToProps = (state) => ({
   isAuth: state.auth.isAuth

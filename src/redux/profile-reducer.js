@@ -1,4 +1,5 @@
 import { profileAPI, usersAPI } from "./../api/api";
+
 const ADD_POST = "ADD-POST";
 const SET_USER_PROFILE = "SET_USER_PROFILE";
 const SET_STATUS = "SET_STATUS";
@@ -8,12 +9,6 @@ let initialState = {
     { id: 1, message: "Hi, how are you? ", likesCount: 15 },
     { id: 2, message: "It's my first post ", likesCount: 10 },
     { id: 3, message: "Kak tebe takoe Elon Sobaks? ", likesCount: 7 },
-    {
-      id: 4,
-      message: "Primu v dar Korm dla puppies, ya mnogodetniy papka ",
-      likesCount: 3,
-    },
-    { id: 5, message: "Kak dela? ", likesCount: 2 },
     { id: 6, message: "Kot poel kaktus ", likesCount: 1 },
   ],
   profile: null,
@@ -74,11 +69,14 @@ export const getStatus = (userId) => (dispatch) => {
   });
 };
 export const updateStatus = (status) => (dispatch) => {
-  profileAPI.updateStatus(status).then((response) => {
-    if (response.data.resultCode === 0) {
-      dispatch(setStatus(status));
-    }
-  });
+  profileAPI.updateStatus(status)
+    .then((response) => {
+      if (response.data.resultCode === 0) {
+        dispatch(setStatus(status));
+      }
+    });
 };
+
+
 
 export default profileReducer;

@@ -4,8 +4,9 @@ import dialogsReducer from "./dialogs-reducer";
 import sidebarReducer from "./sidebar-reducer";
 import usersReducer from "./users-reducer";
 import authReducer from "./auth-reducer";
-import thunkMiddleware from 'redux-thunk';
 import { reducer as formReducer } from 'redux-form'
+import appReducer from './app-reducer';
+import thunkMiddleware from "redux-thunk";
 
 let reducers = combineReducers({ // воспринимает всё в combineReducers how state
   profilePage: profileReducer,
@@ -13,11 +14,12 @@ let reducers = combineReducers({ // воспринимает всё в combineRe
   sidebar: sidebarReducer,
   usersPage: usersReducer,
   auth: authReducer,
-  form: formReducer
+  form: formReducer,
+  app: appReducer
 });
 
 let store = createStore(reducers, applyMiddleware(thunkMiddleware)) // закомбайненные редусеры отдаём стору //прими такие middleware мидл вейр из редакса для санки, что бы можно было вклиниться 
 
-window.store = store;
+// window.store = store;
 
 export default store;
