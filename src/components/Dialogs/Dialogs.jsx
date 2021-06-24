@@ -2,8 +2,8 @@ import React from "react";
 import s from "./Dialogs.module.css";
 import Message from "./Message/Message";
 import DialogItem from "./DialogItem/DialogItem";
-import { Field, reduxForm } from "redux-form";
 import { Redirect } from 'react-router-dom';
+import AddMessageForm from "./AddMessageForm/AddMessageForm";
 
 const Dialogs = (props) => {
 
@@ -22,26 +22,10 @@ const Dialogs = (props) => {
       </ul>
       <ul className={s.messages}>
         {messegesElements}
-        <AddMessageFormRedux onSubmit={addNewMessage} />
+        <AddMessageForm onSubmit={addNewMessage} />
       </ul>
     </div>
   )
 }
-
-
-const AddMessageForm = (props) => {
-  return (
-    <form onSubmit={props.handleSubmit}>
-      <Field component='textarea'
-        name='newMessageBody'
-        placeholder="Enter your message" />
-      <button className={s.buttonBlue + ' ' + s.buttonBlueEffect + ' ' + s.buttonBlueRotate}>
-        add message
-      </button>
-    </form>
-  )
-}
-
-const AddMessageFormRedux = reduxForm({ form: 'dialogAddMessageForm' })(AddMessageForm)
 
 export default Dialogs;
