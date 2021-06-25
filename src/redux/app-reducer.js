@@ -23,8 +23,8 @@ const appReducer = (state = initialState, action) => {
 export const initializedSuccess = () => ({ type: INITIALIZED_SUCCESS });
 
 export const initializeApp = () => (dispatch) => {
-  let promise = dispatch(getAuthUserData());
-  Promise.all([promise]).then(() => {
+  let promise = dispatch(getAuthUserData()); //диспатч возвращает тоже , как и then promise
+  Promise.all([promise]).then(() => { //когда все промисы из массива (all) зарезолвятся 
     dispatch(initializedSuccess());
   });
 };
