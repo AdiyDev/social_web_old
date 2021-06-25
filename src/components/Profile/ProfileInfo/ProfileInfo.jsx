@@ -1,7 +1,7 @@
 import React from 'react';
 import s from "./ProfileInfo.module.css";
 import Preloader from '../../common/Preloader/Preloader';
-import ProfileStatus from './ProfileStatus'
+import ProfileStatusWithHooks from './ProfileStatusWithHooks'
 
 const ProfileInfo = (props) => {
   if (!props.profile) {
@@ -21,7 +21,7 @@ const ProfileInfo = (props) => {
           : 'https://imgix.ranker.com/user_node_img/50082/1001628557/original/someone-worse-off-than-they-are-photo-u2?auto=format&q=60&fit=crop&fm=pjpg&w=375'} alt="" />
 
 
-        <ProfileStatus status={props.status} updateStatus={props.updateStatus} />
+        <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus} />
 
         <li><p>{props.profile.aboutMe}</p></li>
         <li><p>{props.profile.fullName}</p></li>
