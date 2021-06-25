@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 // import s from "./ProfileInfo.module.css";
 
 // let arr = [0, () => {}]
@@ -11,6 +11,13 @@ const ProfileStatusWithHooks = (props) => {
   // let setEditMode = stateWithSetState[1] //вторым функция которая будет изменять первое это значение из стейт [0]
   let [editMode, setEditMode] = useState(false)
   let [status, setStatus] = useState(props.status)
+  //useEffect -сайд эффект тоже
+  useEffect(() => {
+
+    setStatus(props.status)
+  }, [props.status])//пустой массив говорит, что как компонент дид маунт отрисуйся 1 раз (но так делать не правильно, прочитать статью дена абрамова) 
+  //через пропс поставили поставили зависимость от стейта в пустой массив
+
 
   const activeteEditMode = () => {
     setEditMode(true)

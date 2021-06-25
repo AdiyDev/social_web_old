@@ -10,7 +10,6 @@ const maxLength10 = maxLengthCreator(10)
 const AddNewPostForm = (props) => {
   return <form onSubmit={props.handleSubmit} >
     <h3>My posts</h3>
-    {/* <Field component={Textarea} /> */}
     <Field name='newPostText' component={Textarea}
       placeholder={'Post message'}
       validate={[required, maxLength10]} />
@@ -18,6 +17,7 @@ const AddNewPostForm = (props) => {
   </form>
 }
 
+const AddNewPostFormRedux = reduxForm({ form: 'ProfileAddNewPostForm' })(AddNewPostForm)
 
 const MyPosts = (props) => {
   let postsElements = props.profilePage.posts.map(p => <Post message={p.message} key={p.id} likesCount={p.likesCount} />);
@@ -28,18 +28,13 @@ const MyPosts = (props) => {
 
   return (
     <div className={s.postsBlock}>
-
       <AddNewPostFormRedux onSubmit={onAddPost} />
-
       <ul className={s.posts}>
         {postsElements}
       </ul>
     </div>
   )
 }
-
-
-const AddNewPostFormRedux = reduxForm({ form: 'ProfileAddNewPostForm' })(AddNewPostForm)
 
 export default MyPosts;
 
