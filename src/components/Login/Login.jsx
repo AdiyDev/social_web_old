@@ -1,13 +1,12 @@
 import React from 'react'
 import { Field, reduxForm } from 'redux-form'
-import { Element } from './../common/FormsControls/FormsControls'
+import { Input } from './../common/FormsControls/FormsControls'
 import { required, maxLengthCreator } from './../../utils/validators/validators';
 import { connect } from 'react-redux';
 import { login } from '../../redux/auth-reducer';
 import { Redirect } from 'react-router-dom';
 import style from './../common/FormsControls/FormsControls.module.css'
 
-const Input = Element("input")
 const maxLength30 = maxLengthCreator(30)
 
 const LoginForm = (props) => {

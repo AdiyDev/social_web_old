@@ -6,7 +6,7 @@ import ProfileContainer from "./components/Profile/ProfileContainer";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
-import UserContainer from "./components/Users/UserContainer";
+import UsersContainer from "./components/Users/UsersContainer";
 import Settings from "./components/Settings/Settings";
 import LoginPage from "./components/Login/Login";
 import { Route, withRouter } from "react-router-dom";
@@ -32,7 +32,7 @@ class App extends Component {
           <Route path="/dialogs" render={() => <DialogsContainer />} />
           <Route path="/news" render={() => <News />} />
           <Route path="/music" render={() => <Music />} />
-          <Route path="/users" render={() => <UserContainer />} />
+          <Route path="/users" render={() => <UsersContainer />} />
           <Route path="/settings" render={() => <Settings />} />
           <Route path="/login" render={() => <LoginPage />} />
         </div>
@@ -45,4 +45,7 @@ const mapStateToProps = (state) => ({
   initialized: state.app.initialized
 })
 
-export default compose(withRouter, connect(mapStateToProps, { initializeApp })(App));
+
+export default compose(
+  withRouter,
+  connect(mapStateToProps, { initializeApp }))(App);
