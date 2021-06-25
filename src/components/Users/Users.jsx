@@ -20,7 +20,7 @@ const Users = (props) => {
       })}
     </div>
     {props.users.map((u) => (// props становится свойством этого обьекта (класса Users)
-      <div key={Users.id}>
+      <div key={u.id}>
         <span>
           <div>
             <NavLink to={"/profile/" + u.id}>
