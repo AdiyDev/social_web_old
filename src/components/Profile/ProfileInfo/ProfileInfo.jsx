@@ -2,6 +2,7 @@ import React from 'react';
 import s from "./ProfileInfo.module.css";
 import Preloader from '../../common/Preloader/Preloader';
 import ProfileStatusWithHooks from './ProfileStatusWithHooks'
+import userPhotoEmpty from '../../../assets/images/userPhotoEmpty.jpg'
 
 const ProfileInfo = (props) => {
   if (!props.profile) {
@@ -18,7 +19,7 @@ const ProfileInfo = (props) => {
       <li className={s.descriptionBlock}>
         <img src={props.profile.photos.large
           ? props.profile.photos.large
-          : 'https://imgix.ranker.com/user_node_img/50082/1001628557/original/someone-worse-off-than-they-are-photo-u2?auto=format&q=60&fit=crop&fm=pjpg&w=375'} alt="" />
+          : userPhotoEmpty} alt="" />
 
 
         <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus} />
