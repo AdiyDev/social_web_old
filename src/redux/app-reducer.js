@@ -5,6 +5,7 @@ const INITIALIZED_SUCCESS = "INITIALIZED_SUCCESS";
 let initialState = {
   data: {
     initialized: false,
+    globalError: null,
   },
 };
 

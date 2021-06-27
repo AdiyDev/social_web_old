@@ -5,8 +5,8 @@ const FOLLOW = "FOLLOW";
 const UNFOLLOW = "UNFOLLOW";
 const SET_USERS = "SET-USERS";
 const SET_CURRENT_PAGE = "SET-CURRENT-PAGE";
-const SET_TOTAL_USERS_COUNT = "SET-TOTAL-USERS-COUNT";
-const TOGGLE_IS_FETCHING = "TOGGLE-IS-FETCHING";
+const SET_TOTAL_USERS_COUNT = "SET_TOTAL_USERS_COUNT";
+const TOGGLE_IS_FETCHING = "TOGGLE_IS_FETCHING";
 const TOGGLE_IS_FOLLOWING_PROGRESS = "TOGGLE_IS_FOLLOWING_PROGRESS";
 
 let initialState = {
@@ -26,8 +26,6 @@ const usersReducer = (state = initialState, action) => {
         users: updateObjectInArray(state.users, action.userId, "id", {
           followed: true,
         }),
-
-        // users: [...state.users] эти записи с копированием индентичны только мап берет и пересобирает
       };
     case UNFOLLOW:
       return {
@@ -88,7 +86,7 @@ export const setCurrentPage = (currentPage) => ({
 });
 export const setTotalUsersCount = (totalUsersCount) => ({
   type: SET_TOTAL_USERS_COUNT,
-  totalUsersCount,
+  count: totalUsersCount,
 });
 export const toggleIsFetching = (isFetching) => ({
   type: TOGGLE_IS_FETCHING,
@@ -138,7 +136,6 @@ export const follow = (userId) => {
     );
   };
 };
-
 export const unfollow = (userId) => {
   return async (dispatch) => {
     followUnfollowFlow(

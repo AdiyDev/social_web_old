@@ -56,10 +56,21 @@ export const authAPI = {
   me() {
     return instance.get(`auth/me`); //auth/me?sgdsg=dsaf ввиде данных нет возможности отправить, отправляем ввиде строки это для get and delete
   }, //me() дай мне меня
-  login(email, password, rememberMe = false) {
-    return instance.post(`auth/login`, { email, password, rememberMe }); //вторым параметром можем положить и передать обьект на сервак
+  login(email, password, rememberMe = false, captcha = null) {
+    return instance.post(`auth/login`, {
+      email,
+      password,
+      rememberMe,
+      captcha,
+    }); //вторым параметром можем положить и передать обьект на сервак
   },
   logout() {
     return instance.delete(`auth/login`);
+  },
+};
+
+export const securityAPI = {
+  getCaptchaUrl() {
+    return instance.get(`security/get-captcha-url`);
   },
 };
