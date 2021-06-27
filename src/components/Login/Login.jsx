@@ -1,6 +1,6 @@
 import React from 'react'
 import { Field, reduxForm } from 'redux-form'
-import { Input } from './../common/FormsControls/FormsControls'
+import { Input, createField } from './../common/FormsControls/FormsControls'
 import { required, maxLengthCreator } from './../../utils/validators/validators';
 import { connect } from 'react-redux';
 import { login } from '../../redux/auth-reducer';
@@ -9,27 +9,22 @@ import style from './../common/FormsControls/FormsControls.module.css'
 
 const maxLength30 = maxLengthCreator(30)
 
-const LoginForm = (props) => {
+
+const LoginForm = ({ handleSubmit, error }) => {
   return (
-    <div>
-      <form onSubmit={props.handleSubmit}>
-        <div>
-          <Field placeholder={'email'} name={'email'} component={Input} validate={[required, maxLength30]} />
-        </div>
-        <div>
-          <Field placeholder={'password'} name={'password'} type={'password'} component={Input} validate={[required, maxLength30]} />
-        </div>
-        <div>
-          <Field type={'checkbox'} name={'rememberMe'} component={Input} validate={[required, maxLength30]} /> remebmer me
-        </div>
-        {props.error && <div className={style.formSummaryError}>
-          {props.error}
-        </div>}
-        <div>
-          <button>Login</button>
-        </div>
-      </form>
-    </div>
+    <form onSubmit={handleSubmit}>
+      {createField("Email", "email", [required, maxLength30], Input)}
+      {createField("Password", "password", [required, maxLength30], Input, { type: "password" })}
+      {createField(null, "rememberMe", [], Input, { type: "checkbox" }, "remember me")}
+
+      {error && <div className={style.formSummaryError}>
+        {error}
+      </div>
+      }
+      <div>
+        <button>Login</button>
+      </div>
+    </form>
   )
 }
 
@@ -42,10 +37,12 @@ const Login = (props) => {
   if (props.isAuth) {
     return <Redirect to={'/profile'} />
   }
-  return <div>
-    <h1>LOGIN</h1>
-    <LoginReduxForm onSubmit={onSubmit} />
-  </div>
+  return (
+    <div>
+      <h1>LOGIN</h1>
+      <LoginReduxForm onSubmit={onSubmit} />
+    </div>
+  )
 }
 const mapStateToProps = (state) => ({
   isAuth: state.auth.isAuth

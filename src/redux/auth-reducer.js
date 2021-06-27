@@ -1,7 +1,7 @@
 import { stopSubmit } from "redux-form";
 import { authAPI } from "../api/api";
 
-const SET_USER_DATA = "social-network/auth/SET_USER_DATA";
+const SET_USER_DATA = "react-first/auth/SET_USER_DATA";
 
 let initialState = {
   userId: null,

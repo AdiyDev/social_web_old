@@ -4,8 +4,8 @@ import Preloader from '../../common/Preloader/Preloader';
 import ProfileStatusWithHooks from './ProfileStatusWithHooks'
 import userPhotoEmpty from '../../../assets/images/userPhotoEmpty.jpg'
 
-const ProfileInfo = (props) => {
-  if (!props.profile) {
+const ProfileInfo = ({ profile, status, updateStatus }) => {
+  if (!profile) {
     return <Preloader />
   }
 
@@ -17,29 +17,29 @@ const ProfileInfo = (props) => {
           alt=""></img>
       </li>
       <li className={s.descriptionBlock}>
-        <img src={props.profile.photos.large
-          ? props.profile.photos.large
+        <img src={profile.photos.large
+          ? profile.photos.large
           : userPhotoEmpty} alt="" />
 
 
-        <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus} />
+        <ProfileStatusWithHooks status={status} updateStatus={updateStatus} />
 
-        <li><p>{props.profile.aboutMe}</p></li>
-        <li><p>{props.profile.fullName}</p></li>
+        <li><p>{profile.aboutMe}</p></li>
+        <li><p>{profile.fullName}</p></li>
       </li>
       <li>
         {/* in contacts много элементов */}
-        <p>{props.profile.contacts.github}</p>
+        <p>{profile.contacts.github}</p>
         <p>
           В поисках ли я работы?
-          {!props.profile.lookingForAJob ? " не ищу" : ' работаю за еду'}</p>
+          {!profile.lookingForAJob ? " не ищу" : ' работаю за еду'}</p>
         <p>
           <span>Рабочие скиллы </span>
-          {props.profile.lookingForAJobDescription}
+          {profile.lookingForAJobDescription}
         </p>
         <p>Тут моя маленькая аватарка</p>
         <p>
-          <img src={props.profile.photos.small} className={s.minPhoto} alt="" />
+          <img src={profile.photos.small} className={s.minPhoto} alt="" />
         </p>
       </li>
     </ul>

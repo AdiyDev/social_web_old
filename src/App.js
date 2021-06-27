@@ -13,7 +13,7 @@ import { Route, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { initializeApp } from "./redux/app-reducer";
 import { compose } from "redux";
-import Preloader from './components/common/Preloader/Preloader';
+import Preloader from "./components/common/Preloader/Preloader";
 
 class App extends Component {
   componentDidMount() {
@@ -21,7 +21,7 @@ class App extends Component {
   }
   render() {
     if (!this.props.initialized) {
-      return <Preloader />
+      return <Preloader />;
     }
     return (
       <div className="app-wrapper">
@@ -37,15 +37,15 @@ class App extends Component {
           <Route path="/login" render={() => <LoginPage />} />
         </div>
       </div>
-    )
+    );
   }
 }
 
 const mapStateToProps = (state) => ({
-  initialized: state.app.initialized
-})
-
+  initialized: state.app.initialized,
+});
 
 export default compose(
   withRouter,
-  connect(mapStateToProps, { initializeApp }))(App);
+  connect(mapStateToProps, { initializeApp })
+)(App);
