@@ -11,11 +11,11 @@ let initialState = {
   ],
   messages: [
     { id: 1, message: "HI" },
-    { id: 2, message: "How are your React-Redux?" },
-    { id: 3, message: "Privet" },
-    { id: 4, message: "Dobrogo vremeni sutok" },
-    { id: 5, message: "Kak dela?" },
-    { id: 6, message: "Vse normalno, blagodaru" },
+    { id: 2, message: "Ky ky ky?" },
+    { id: 3, message: "GO v reid" },
+    { id: 4, message: "Net v CLK ne poidu" },
+    { id: 5, message: "go on WarSong" },
+    { id: 6, message: "Go i v retro spece " },
   ],
 };
 

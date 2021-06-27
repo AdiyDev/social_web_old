@@ -1,9 +1,9 @@
-import React, { Component } from "react";
+import React, { Component, Suspense } from "react";
 import "./App.css";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import Navbar from "./components/Navbar/Navbar";
-import ProfileContainer from "./components/Profile/ProfileContainer";
-import DialogsContainer from "./components/Dialogs/DialogsContainer";
+// import ProfileContainer from "./components/Profile/ProfileContainer";
+// import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import UsersContainer from "./components/Users/UsersContainer";
@@ -16,6 +16,12 @@ import { compose } from "redux";
 import Preloader from "./components/common/Preloader/Preloader";
 import store from "./redux/redux-store";
 
+const DialogsContainer = React.lazy(() =>
+  import("./components/Dialogs/DialogsContainer")
+);
+const ProfileContainer = React.lazy(() =>
+  import("./components/Profile/ProfileContainer")
+);
 class App extends Component {
   componentDidMount() {
     this.props.initializeApp();
@@ -29,13 +35,25 @@ class App extends Component {
         <HeaderContainer />
         <Navbar />
         <div className="app-wrapper-content">
-          <Route path="/profile/:userId?" render={() => <ProfileContainer />} />
-          <Route path="/dialogs" render={() => <DialogsContainer />} />
-          <Route path="/news" render={() => <News />} />
-          <Route path="/music" render={() => <Music />} />
-          <Route path="/users" render={() => <UsersContainer />} />
-          <Route path="/settings" render={() => <Settings />} />
-          <Route path="/login" render={() => <LoginPage />} />
+          <Suspense
+            fallback={
+              <div>
+                <Preloader />
+                ГРУЖУУУУУУУУЗЬЬЬЬЬЬЬЬЬЬЬЬЬЬЬЬЬЬЬЬЬЬ,,,,,,,
+              </div>
+            }
+          >
+            <Route
+              path="/profile/:userId?"
+              render={() => <ProfileContainer />}
+            />
+            <Route path="/dialogs" render={() => <DialogsContainer />} />
+            <Route path="/news" render={() => <News />} />
+            <Route path="/music" render={() => <Music />} />
+            <Route path="/users" render={() => <UsersContainer />} />
+            <Route path="/settings" render={() => <Settings />} />
+            <Route path="/login" render={() => <LoginPage />} />
+          </Suspense>
         </div>
       </div>
     );
@@ -51,7 +69,7 @@ let AppContainer = compose(
   connect(mapStateToProps, { initializeApp })
 )(App);
 
-const SamuraiJSApp = (props) => {
+const SocialWebApp = (props) => {
   return (
     <BrowserRouter>
       <Provider store={store}>
@@ -61,4 +79,4 @@ const SamuraiJSApp = (props) => {
   );
 };
 
-export default SamuraiJSApp;
+export default SocialWebApp;
