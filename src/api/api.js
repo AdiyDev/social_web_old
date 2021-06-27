@@ -4,7 +4,7 @@ const instance = axios.create({
   baseURL: "https://social-network.samuraijs.com/api/1.0/",
   withCredentials: true,
   headers: {
-    "API-KEY": "b78357c3-0753-4bd0-b470-22121b13c54f",
+    "API-KEY": "2561349e-c031-4f3f-acb6-8feb671f338e",
   },
 });
 
@@ -38,16 +38,25 @@ export const profileAPI = {
   updateStatus(status) {
     return instance.put("profile/status", { status: status }); //json на сервер передать который будет равен тексту
   },
-};
+  savePhoto(photoFile) {
+    const formData = new FormData();
+    formData.append("image", photoFile);
 
+    return instance.put(`profile/photo`, formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+  },
+};
 export const authAPI = {
   me() {
     return instance.get(`auth/me`); //auth/me?sgdsg=dsaf ввиде данных нет возможности отправить, отправляем ввиде строки это для get and delete
   }, //me() дай мне меня
   login(email, password, rememberMe = false) {
-    return instance.post(`auth/login`, { email, password, rememberMe }) //вторым параметром можем положить и передать обьект на сервак
+    return instance.post(`auth/login`, { email, password, rememberMe }); //вторым параметром можем положить и передать обьект на сервак
   },
   logout() {
-    return instance.delete(`auth/login`)
+    return instance.delete(`auth/login`);
   },
 };

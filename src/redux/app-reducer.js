@@ -22,8 +22,17 @@ const appReducer = (state = initialState, action) => {
 
 export const initializedSuccess = () => ({ type: INITIALIZED_SUCCESS });
 
-export const initializeApp = () => (dispatch) => {
-  let promise = dispatch(getAuthUserData()); //диспатч возвращает тоже , как и then promise
+// export const initializeApp = () => (dispatch) => {
+//   let promise = dispatch(getAuthUserData()); //диспатч возвращает тоже , как и then promise
+
+//   Promise.all([promise]).then(() => {
+//     //когда все промисы из массива (all) зарезолвятся
+//     dispatch(initializedSuccess());
+//   });
+// };
+
+export const initializeApp = () => async (dispatch) => {
+  let promise = await dispatch(getAuthUserData()); //диспатч возвращает тоже , как и then promise
 
   Promise.all([promise]).then(() => {
     //когда все промисы из массива (all) зарезолвятся
