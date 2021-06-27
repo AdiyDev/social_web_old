@@ -1,4 +1,4 @@
-import { combineReducers, createStore, applyMiddleware, compose } from "redux";
+import { combineReducers, createStore, compose, applyMiddleware } from "redux";
 import profileReducer from "./profile-reducer";
 import dialogsReducer from "./dialogs-reducer";
 import sidebarReducer from "./sidebar-reducer";
@@ -18,7 +18,6 @@ let reducers = combineReducers({
   form: formReducer,
   app: appReducer,
 });
-// закомбайненные редусеры отдаём стору //прими такие middleware мидл вейр из редакса для санки, что бы можно было вклиниться
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
@@ -26,5 +25,4 @@ const store = createStore(
   composeEnhancers(applyMiddleware(thunkMiddleware))
 );
 
-window.__store__ = store;
 export default store;
