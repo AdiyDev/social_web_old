@@ -115,7 +115,7 @@ export const updateStatus = (status) => async (dispatch) => {
       dispatch(setStatus(status));
     }
   } catch (error) {
-    //
+    // логика для отображения, просмотра, и т.д. ошибок
   }
 };
 export default profileReducer;
