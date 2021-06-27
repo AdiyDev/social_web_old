@@ -15,7 +15,13 @@
 .profileInfoWrapper .descriptionBlock {
   padding: 10px;
 }
+.profileInfoWrapper .descriptionBlock .mainPhoto {
+  max-width: 200px;
+}
 
+.contact {
+  padding-left: 10px;
+}
 .profileInfoWrapper .descriptionBlock p {
   padding: 0;
   margin: 0;
