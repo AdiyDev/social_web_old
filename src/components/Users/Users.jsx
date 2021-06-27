@@ -4,7 +4,7 @@ import userPhoto from "../../assets/images/user.png"
 import { NavLink } from 'react-router-dom'
 
 const Users = (props) => {
-  let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize / 65)
+  let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)
 
   let pages = []
 

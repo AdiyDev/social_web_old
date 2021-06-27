@@ -4,9 +4,9 @@ const INITIALIZED_SUCCESS = "INITIALIZED_SUCCESS";
 
 let initialState = {
   data: {
-    initialized: false
-  }
-}
+    initialized: false,
+  },
+};
 
 const appReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -18,13 +18,15 @@ const appReducer = (state = initialState, action) => {
     default:
       return state;
   }
-}
+};
 
 export const initializedSuccess = () => ({ type: INITIALIZED_SUCCESS });
 
 export const initializeApp = () => (dispatch) => {
   let promise = dispatch(getAuthUserData()); //диспатч возвращает тоже , как и then promise
-  Promise.all([promise]).then(() => { //когда все промисы из массива (all) зарезолвятся 
+
+  Promise.all([promise]).then(() => {
+    //когда все промисы из массива (all) зарезолвятся
     dispatch(initializedSuccess());
   });
 };
