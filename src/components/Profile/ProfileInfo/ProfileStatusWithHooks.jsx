@@ -26,11 +26,11 @@ const ProfileStatusWithHooks = (props) => {
   const deactiveteEditMode = () => {
     //берется из React.Componentт передаем обьект свойства который перезапишет свойства в нашем локальном стейте
     setEditMode(false)
+    props.updateStatus(status);
   }
 
   const onStatusChange = (e) => {
     setStatus(e.currentTarget.value)
-    props.updateStatus(status)
   }
 
   const handleFocus = (e) => {
