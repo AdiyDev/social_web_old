@@ -1,1 +1,1 @@
-deprecated:Project with class components
+# project deprecated
